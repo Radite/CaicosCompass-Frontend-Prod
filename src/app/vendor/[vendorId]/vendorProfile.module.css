@@ -3,54 +3,7 @@
 */
 
 /* MARK: Design System & Variables */
-:root {
-  /* Colors */
-  --color-primary: #007A87; /* A professional teal */
-  --color-primary-dark: #005f69;
-  --color-primary-light: #e0f2f1;
-  --color-accent: #f59e0b; /* A warm amber */
-  --color-text-base: #1f2937; /* Dark Gray */
-  --color-text-muted: #6b7280; /* Medium Gray */
-  --color-bg-base: #ffffff;
-  --color-bg-alt: #f9fafb; /* Off-white */
-  --color-border: #e5e7eb;
-  --color-success: #10b981;
-  --color-danger: #ef4444;
-  --color-facebook: #1877f2;
-  --color-instagram-start: #feda75;
-  --color-instagram-end: #d62976;
-  --color-twitter: #1da1f2;
-  
-  /* Typography */
-  --font-family-sans: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-  --font-size-xs: 0.75rem;   /* 12px */
-  --font-size-sm: 0.875rem;  /* 14px */
-  --font-size-base: 1rem;     /* 16px */
-  --font-size-lg: 1.125rem;  /* 18px */
-  --font-size-xl: 1.25rem;   /* 20px */
-  --font-size-2xl: 1.5rem;   /* 24px */
-  --font-size-3xl: 1.875rem; /* 30px */
-  --font-size-4xl: 2.25rem;  /* 36px */
 
-  /* Spacing */
-  --space-1: 0.25rem;
-  --space-2: 0.5rem;
-  --space-4: 1rem;
-  --space-6: 1.5rem;
-  --space-8: 2rem;
-
-  /* Sizing & Radius */
-  --radius-md: 0.5rem;
-  --radius-lg: 0.75rem;
-  --radius-full: 9999px;
-  --max-width-container: 72rem; /* 1152px */
-  
-  /* Effects */
-  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
-  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
-  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
-  --transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-}
 
 /* MARK: Base & Layout */
 .pageContainer {

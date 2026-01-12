@@ -1,15 +1,6 @@
 /* confirmation.module.css */
 
-/* --- Base & Variables --- */
-:root {
-  --success-color: #28a745;
-  --error-color: #dc3545;
-  --loading-color: #007bff;
-  --light-gray: #f8f9fa;
-  --medium-gray: #6c757d;
-  --dark-gray: #343a40;
-  --card-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
-}
+
 
 /* --- Main Container --- */
 .container {

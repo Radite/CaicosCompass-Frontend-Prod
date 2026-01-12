@@ -1,25 +1,5 @@
 /* src/app/itinerary/itinerary.module.css - Complete Itinerary Styles */
 
-:root {
-  --primary: #1e4d72;
-  --primary-light: rgba(30, 77, 114, 0.1);
-  --accent: #d4af37;
-  --light: #ffffff;
-  --dark: #2c3e50;
-  --gray-light: #f8f9fa;
-  --gray: #e9ecef;
-  --gray-medium: #dee2e6;
-  --gray-dark: #6c757d;
-  --success: #28a745;
-  --warning: #ffc107;
-  --danger: #dc3545;
-  --radius: 12px;
-  --radius-sm: 8px;
-  --shadow-light: 0 2px 10px rgba(0, 0, 0, 0.08);
-  --shadow-medium: 0 4px 15px rgba(0, 0, 0, 0.12);
-  --shadow-dark: 0 4px 20px rgba(0, 0, 0, 0.15);
-  --transition: all 0.3s ease;
-}
 
 /* Main Container */
 .itineraryContainer {

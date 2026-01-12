@@ -142,13 +142,13 @@ const [toast, setToast] = useState<{
       }
     }
   }, [searchParams]);
-
+const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000';
   useEffect(() => {
     if (!id) return;
 
     const fetchStayDetails = async () => {
       try {
-        const response = await fetch(``${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000'}/api/`services/type/stays/${id}`);
+const response = await fetch(`${API_URL}/api/services/type/stays/${id}`);
         if (!response.ok) {
           throw new Error('Failed to fetch stay details');
         }
