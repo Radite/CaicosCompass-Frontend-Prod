@@ -1,0 +1,549 @@
+/* --- Root Variables and Base Styles --- */
+:root {
+  --primary-color: #007A87; /* A sophisticated teal */
+  --secondary-color: #FF5A5F; /* A vibrant coral for accents */
+  --text-dark: #222222;
+  --text-light: #717171;
+  --background-light: #FFFFFF;
+  --background-grey: #F7F7F7;
+  --border-color: #EBEBEB;
+  --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  --shadow-heavy: 0 8px 24px rgba(0, 0, 0, 0.12);
+  --border-radius: 12px;
+  --transition-fast: all 0.2s ease;
+  --transition-slow: all 0.4s ease;
+  --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.pageWrapper {
+  font-family: var(--font-family);
+  background-color: var(--background-light);
+  color: var(--text-dark);
+}
+
+/* --- Header & Search Bar --- */
+.header {
+  position: sticky;
+  top: 0;
+  background-color: var(--background-light);
+  border-bottom: 1px solid var(--border-color);
+  z-index: 1000;
+  padding: 16px 40px;
+}
+
+.headerContent {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1600px;
+  margin: 0 auto;
+}
+
+.logo a {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  text-decoration: none;
+}
+
+.searchBar {
+  display: flex;
+  align-items: center;
+  border: 1px solid var(--border-color);
+  border-radius: 40px;
+  padding: 8px 8px 8px 24px;
+  box-shadow: var(--shadow);
+  transition: var(--transition-fast);
+}
+
+.searchBar:hover {
+  box-shadow: var(--shadow-heavy);
+}
+
+.searchBar input, .searchBar select {
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: 14px;
+  padding: 8px;
+  color: var(--text-dark);
+}
+
+.searchBar .divider {
+  width: 1px;
+  height: 24px;
+  background-color: var(--border-color);
+  margin: 0 8px;
+}
+
+.searchButton {
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: var(--transition-fast);
+}
+
+.searchButton:hover {
+  background-color: #005f69;
+}
+
+.searchButton svg {
+  width: 16px;
+  height: 16px;
+}
+
+.userMenu {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.hostLink {
+  font-weight: 500;
+  font-size: 14px;
+  color: var(--text-dark);
+  text-decoration: none;
+  padding: 12px;
+  border-radius: 22px;
+  transition: var(--transition-fast);
+}
+
+.hostLink:hover {
+  background-color: var(--background-grey);
+}
+
+.profileIcon {
+  border: 1px solid var(--border-color);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: var(--text-light);
+}
+
+.profileIcon svg {
+  width: 20px;
+  height: 20px;
+}
+
+/* --- Filters --- */
+.filtersContainer {
+  padding: 24px 40px;
+  border-bottom: 1px solid var(--border-color);
+  position: sticky;
+  top: 85px; /* Adjust based on header height */
+  background-color: var(--background-light);
+  z-index: 999;
+}
+
+.typeFilter, .amenitiesFilter {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.typeFilter button, .amenitiesFilter button {
+  padding: 10px 20px;
+  border: 1px solid var(--border-color);
+  border-radius: 30px;
+  background-color: var(--background-light);
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  transition: var(--transition-fast);
+}
+
+.typeFilter button:hover, .amenitiesFilter button:hover {
+  border-color: var(--text-dark);
+}
+
+.typeFilter button.active, .amenitiesFilter button.active {
+  background-color: var(--primary-color);
+  color: white;
+  border-color: var(--primary-color);
+}
+
+/* --- Main Content & Listings --- */
+.mainContent {
+  padding: 40px;
+  max-width: 1600px;
+  margin: 0 auto;
+}
+
+.listings {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 40px 24px;
+}
+
+.listingCard {
+  cursor: pointer;
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  transition: var(--transition-slow);
+  animation: fadeIn 0.5s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.listingImageContainer {
+  position: relative;
+  width: 100%;
+  padding-bottom: 75%; /* 4:3 aspect ratio */
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  background-color: var(--background-grey);
+}
+
+.listingImage {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.listingCard:hover .listingImage {
+  transform: scale(1.05);
+}
+
+.imageOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.favoriteButton {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: transparent;
+  border: none;
+  color: rgba(255, 255, 255, 0.9);
+  cursor: pointer;
+  padding: 0;
+  z-index: 2;
+  transition: var(--transition-fast);
+}
+
+.favoriteButton svg {
+  width: 24px;
+  height: 24px;
+  filter: drop-shadow(0 1px 2px rgba(0,0,0,0.5));
+}
+
+.favoriteButton:hover {
+  color: var(--secondary-color);
+  transform: scale(1.1);
+}
+
+.carouselControl {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(255, 255, 255, 0.9);
+  border: none;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  font-size: 20px;
+  color: var(--text-dark);
+  cursor: pointer;
+  z-index: 2;
+  opacity: 0;
+  transition: var(--transition-fast);
+}
+
+.listingCard:hover .carouselControl {
+  opacity: 1;
+}
+
+.carouselControl.prev { left: 12px; }
+.carouselControl.next { right: 12px; }
+
+.listingDetails {
+  padding-top: 16px;
+}
+
+.listingHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.listingName {
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.listingRating {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  flex-shrink: 0;
+}
+
+.listingRating svg {
+  width: 14px;
+  height: 14px;
+  color: var(--primary-color);
+}
+
+.listingLocation {
+  font-size: 0.9rem;
+  color: var(--text-light);
+  margin: 4px 0;
+}
+
+.listingPrice {
+  margin-top: 8px;
+  font-size: 1rem;
+  color: var(--text-dark);
+}
+
+.dateRangePickerContainer {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.dateDisplayButton {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  font-size: 14px;
+  color: var(--text-dark);
+  white-space: nowrap;
+  font-family: var(--font-family);
+}
+
+.calendarWrapper {
+  position: absolute;
+  top: 60px; /* Position it below the search bar */
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1001;
+  background: var(--background-light);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-heavy);
+  border: 1px solid var(--border-color);
+}
+
+.guestInput {
+  width: 100px; /* Give a bit of space for the placeholder */
+}
+
+.discountBadge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background-color: var(--secondary-color);
+  color: white;
+  padding: 4px 10px;
+  border-radius: var(--border-radius);
+  font-size: 0.8rem;
+  font-weight: 600;
+  z-index: 3;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.priceContainer {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap; /* Allows wrapping on small cards */
+}
+
+.originalPrice {
+  color: var(--text-light);
+  font-weight: 400;
+  font-size: 0.9rem;
+}
+/* --- States: Loading, Error, Empty --- */
+.skeletonCard {
+  border-radius: var(--border-radius);
+  overflow: hidden;
+}
+.skeletonImage {
+  width: 100%;
+  padding-bottom: 75%;
+  background-color: #e0e0e0;
+  border-radius: var(--border-radius);
+  animation: pulse 1.5s infinite;
+}
+.skeletonText {
+  height: 20px;
+  width: 80%;
+  background-color: #e0e0e0;
+  margin-top: 16px;
+  border-radius: 4px;
+  animation: pulse 1.5s infinite;
+}
+.skeletonTextShort {
+  height: 20px;
+  width: 50%;
+  background-color: #e0e0e0;
+  margin-top: 8px;
+  border-radius: 4px;
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0% { opacity: 1; }
+  50% { opacity: 0.6; }
+  100% { opacity: 1; }
+}
+
+.errorState, .emptyState {
+  text-align: center;
+  padding: 80px 20px;
+  width: 100%;
+}
+
+.errorState h3, .emptyState h3 {
+  font-size: 1.5rem;
+  margin-bottom: 8px;
+}
+
+/* --- Footer --- */
+.footer {
+  text-align: center;
+  padding: 40px;
+  border-top: 1px solid var(--border-color);
+  background-color: var(--background-grey);
+  color: var(--text-light);
+  font-size: 0.9rem;
+}
+
+/* --- Responsive Design --- */
+@media (max-width: 1024px) {
+  .headerContent {
+    flex-direction: column;
+    gap: 16px;
+  }
+  .searchBar {
+    width: 100%;
+    max-width: 600px;
+  }
+  .filtersContainer {
+    top: 150px; /* Adjust for taller header */
+  }
+}
+
+@media (max-width: 768px) {
+  .header, .filtersContainer, .mainContent {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+  .searchBar {
+    flex-wrap: wrap;
+    padding: 12px;
+    gap: 8px;
+  }
+  .searchBar input, .searchBar select {
+    width: 100%;
+  }
+  .searchBar .divider {
+    display: none;
+  }
+  .listings {
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  }
+}
+
+/* Add these styles to your existing stayspage.module.css file */
+
+/* Filters Button Styles */
+.filtersButton {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  background: white;
+  border: 1px solid #d1d5db;
+  border-radius: 24px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #374151;
+  cursor: pointer;
+  transition: all 0.2s;
+  position: relative;
+}
+
+.filtersButton:hover {
+  border-color: #9ca3af;
+}
+
+.filtersButton.hasActiveFilters {
+  background: #1f2937;
+  color: white;
+  border-color: #1f2937;
+}
+
+.filtersButton svg {
+  width: 16px;
+  height: 16px;
+}
+
+.filtersBadge {
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  background: #dc2626;
+  color: white;
+  border-radius: 50%;
+  width: 18px;
+  height: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+/* Update existing amenitiesFilter to include the new button */
+.amenitiesFilter {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+/* Responsive adjustments for filters button */
+@media (max-width: 768px) {
+  .filtersButton {
+    padding: 10px 16px;
+    font-size: 0.875rem;
+  }
+  
+  .filtersBadge {
+    width: 20px;
+    height: 20px;
+    font-size: 0.75rem;
+  }
+}
