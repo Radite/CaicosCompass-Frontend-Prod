@@ -194,7 +194,7 @@ export default function VendorAgreementPage() {
           <ul>
             <li>Vendor-initiated cancellations should be avoided when possible</li>
             <li>Customers receive full refund for vendor cancellations</li>
-            <li>Excessive cancellations (>5% of bookings) may result in penalties:</li>
+            <li>Excessive cancellations (more than 5% of bookings) may result in penalties:</li>
             <ul>
               <li>Reduced search ranking</li>
               <li>Warning notifications to customers</li>
